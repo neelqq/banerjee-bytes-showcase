@@ -12,7 +12,8 @@ const Certifications = () => {
       links: [
         { label: "Certificate", url: "#", icon: Award },
         { label: "Drive Link", url: "#", icon: Download }
-      ]
+      ],
+      badge: "Professional"
     },
     {
       title: "AI Tools and ChatGPT",
@@ -22,29 +23,30 @@ const Certifications = () => {
       skills: ["AI Tools", "ChatGPT", "Prompt Engineering", "Productivity"],
       links: [
         { label: "Drive Link", url: "#", icon: Download }
-      ]
+      ],
+      badge: "Innovation"
     }
   ];
 
   return (
-    <section id="certifications" className="py-20">
+    <section id="certifications" className="py-20 relative">
       <div className="section-container">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-8">
-            <span className="gradient-text">Certifications</span> & Training
+          <h2 className="text-4xl md:text-6xl font-bold mb-8">
+            <span className="neon-text">Certifications</span> & Training
           </h2>
           <p className="text-lg text-foreground-secondary max-w-2xl mx-auto">
             Continuous learning and professional development in cutting-edge technologies
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {certifications.map((cert, index) => (
-            <div key={index} className="portfolio-card group">
-              <div className="flex items-start justify-between mb-4">
-                <div className="flex items-center space-x-3">
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                    <Award className="text-primary" size={24} />
+            <div key={index} className="glass-card group">
+              <div className="flex items-start justify-between mb-6">
+                <div className="flex items-center space-x-4">
+                  <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center border border-primary/20">
+                    <Award className="text-primary" size={28} />
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">

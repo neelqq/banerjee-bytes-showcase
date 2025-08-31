@@ -31,11 +31,11 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20">
+    <section id="contact" className="py-20 relative">
       <div className="section-container">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-8">
-            Let's <span className="gradient-text">Connect</span>
+          <h2 className="text-4xl md:text-6xl font-bold mb-8">
+            Let's <span className="neon-text">Connect</span>
           </h2>
           <p className="text-lg text-foreground-secondary max-w-2xl mx-auto">
             Ready to collaborate on your next project? I'm always open to discussing new opportunities 
@@ -54,10 +54,10 @@ const Contact = () => {
                   href={contact.link}
                   target={contact.link.startsWith('http') ? '_blank' : undefined}
                   rel={contact.link.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className="portfolio-card flex items-center space-x-4 hover:bg-primary hover:text-primary-foreground group transition-all duration-300"
+                  className="glass-card flex items-center space-x-4 hover:bg-primary/10 group transition-all duration-300"
                 >
-                  <div className="w-12 h-12 bg-primary/10 group-hover:bg-primary-foreground/20 rounded-lg flex items-center justify-center transition-colors">
-                    <contact.icon className="text-primary group-hover:text-primary-foreground" size={24} />
+                  <div className="w-14 h-14 bg-primary/10 group-hover:bg-primary/20 rounded-2xl flex items-center justify-center transition-colors border border-primary/20">
+                    <contact.icon className="text-primary group-hover:scale-110 transition-transform" size={28} />
                   </div>
                   <div>
                     <div className="font-medium text-foreground group-hover:text-primary-foreground">
@@ -84,31 +84,25 @@ const Contact = () => {
 
           {/* Call to Action */}
           <div className="flex flex-col justify-center">
-            <div className="portfolio-card text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center mx-auto mb-6">
-                <Send className="text-white" size={32} />
+            <div className="glass-card text-center">
+              <div className="w-20 h-20 bg-gradient-to-br from-primary to-accent rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-lg shadow-primary/25">
+                <Send className="text-white" size={36} />
               </div>
               
-              <h3 className="text-2xl font-semibold mb-4 text-foreground">
+              <h3 className="text-2xl font-semibold mb-6 text-foreground">
                 Ready to Start a Project?
               </h3>
               
-              <p className="text-foreground-secondary mb-8 leading-relaxed">
+              <p className="text-foreground-secondary mb-10 leading-relaxed">
                 Whether you need a full-stack web application, mobile app, or want to explore 
                 AI-enhanced solutions, I'm here to help bring your ideas to life.
               </p>
               
               <div className="space-y-4">
-                <Button 
-                  size="lg"
-                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
-                  asChild
-                >
-                  <a href="mailto:banerjeebratabitan@gmail.com">
-                    <Mail size={20} className="mr-2" />
-                    Send me an Email
-                  </a>
-                </Button>
+                <a href="mailto:banerjeebratabitan@gmail.com" className="glow-button w-full inline-flex items-center justify-center">
+                  <Mail size={20} className="mr-2" />
+                  Send me an Email
+                </a>
                 
                 <Button 
                   variant="outline"

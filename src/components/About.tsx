@@ -1,32 +1,32 @@
 const About = () => {
   return (
-    <section id="about" className="py-20 bg-secondary/30">
+    <section id="about" className="py-20 relative">
       <div className="section-container">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-8">
-            About <span className="gradient-text">Me</span>
+        <div className="max-w-5xl mx-auto text-center">
+          <h2 className="text-4xl md:text-6xl font-bold mb-8">
+            About <span className="neon-text">Me</span>
           </h2>
           
-          <div className="portfolio-card">
+          <div className="floating-card mb-12">
             <p className="text-lg md:text-xl text-foreground-secondary leading-relaxed mb-8">
               Innovative and adaptive Java Full Stack Developer with expertise in React.js, Spring Boot, 
               and AI-assisted tools. Passionate about building scalable, user-centric applications that 
-              solve real-world problems.
+              solve real-world problems with cutting-edge technology.
             </p>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-              <div className="p-6">
-                <div className="text-3xl font-bold text-primary mb-2">3+</div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="p-6 group">
+                <div className="text-4xl font-bold neon-text mb-2 group-hover:scale-110 transition-transform">3+</div>
                 <div className="text-foreground-secondary">Years Learning</div>
               </div>
               
-              <div className="p-6">
-                <div className="text-3xl font-bold text-primary mb-2">10+</div>
+              <div className="p-6 group">
+                <div className="text-4xl font-bold neon-text mb-2 group-hover:scale-110 transition-transform">10+</div>
                 <div className="text-foreground-secondary">Technologies</div>
               </div>
               
-              <div className="p-6">
-                <div className="text-3xl font-bold text-primary mb-2">5+</div>
+              <div className="p-6 group">
+                <div className="text-4xl font-bold neon-text mb-2 group-hover:scale-110 transition-transform">5+</div>
                 <div className="text-foreground-secondary">Projects</div>
               </div>
             </div>

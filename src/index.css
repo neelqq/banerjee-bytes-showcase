@@ -8,42 +8,45 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Portfolio Color Scheme */
-    --background: 0 0% 100%;
-    --foreground: 215 25% 9%;
-    --foreground-secondary: 215 13% 42%;
+    /* Modern Dark Portfolio Theme */
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --foreground-secondary: 240 5% 64.9%;
     
-    --card: 0 0% 100%;
-    --card-foreground: 215 25% 9%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
     
-    --popover: 0 0% 100%;
-    --popover-foreground: 215 25% 9%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
     
-    --primary: 217 91% 60%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 142 76% 36%;
+    --primary-foreground: 355 7% 97%;
     
-    --secondary: 215 20% 95%;
-    --secondary-foreground: 215 25% 9%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
     
-    --muted: 215 20% 96%;
-    --muted-foreground: 215 13% 42%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
     
-    --accent: 32 95% 56%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 47 96% 53%;
+    --accent-foreground: 240 5.9% 10%;
     
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: 0 72.2% 50.6%;
+    --destructive-foreground: 0 0% 98%;
     
-    --border: 215 20% 90%;
-    --input: 215 20% 90%;
-    --ring: 217 91% 60%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 142 76% 36%;
     
-    /* Custom Portfolio Tokens */
-    --hero-gradient: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(32 95% 56%) 100%);
-    --card-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-    --card-shadow-hover: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-spring: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* Custom Gradient & Effects */
+    --neon-gradient: linear-gradient(135deg, hsl(142 76% 36%) 0%, hsl(47 96% 53%) 100%);
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glow-primary: 0 0 20px hsl(142 76% 36% / 0.5);
+    --glow-accent: 0 0 20px hsl(47 96% 53% / 0.5);
+    --card-glow: 0 8px 32px rgba(0, 0, 0, 0.37);
+    
+    --radius: 1rem;
 
     --radius: 0.5rem;
 
@@ -110,6 +113,10 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground font-inter;
+    background-image: 
+      radial-gradient(circle at 20% 50%, hsl(142 76% 36% / 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, hsl(47 96% 53% / 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 40% 80%, hsl(142 76% 36% / 0.05) 0%, transparent 50%);
   }
   
   html {
@@ -119,27 +126,53 @@ All colors MUST be HSL.
 
 @layer components {
   .section-container {
-    @apply max-w-6xl mx-auto px-6 py-16;
+    @apply max-w-7xl mx-auto px-6 py-20;
   }
   
-  .portfolio-card {
-    @apply bg-card rounded-xl p-6 transition-all duration-300 hover:scale-105;
-    box-shadow: var(--card-shadow);
+  .glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--card-glow);
+    @apply rounded-2xl p-8 transition-all duration-500 hover:scale-[1.02];
   }
   
-  .portfolio-card:hover {
-    box-shadow: var(--card-shadow-hover);
+  .glass-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: var(--glow-primary);
   }
   
-  .gradient-text {
-    background: var(--hero-gradient);
+  .neon-text {
+    background: var(--neon-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    filter: drop-shadow(0 0 10px hsl(142 76% 36% / 0.5));
   }
   
-  .skill-tag {
-    @apply bg-secondary/50 text-secondary-foreground px-3 py-1 rounded-full text-sm font-medium 
-           transition-all duration-300 hover:bg-primary hover:text-primary-foreground;
+  .glow-button {
+    @apply bg-primary text-primary-foreground font-semibold rounded-xl px-8 py-4
+           transition-all duration-300 hover:scale-105 active:scale-95;
+    box-shadow: var(--glow-primary);
+  }
+  
+  .glow-button:hover {
+    box-shadow: 0 0 30px hsl(142 76% 36% / 0.8);
+  }
+  
+  .skill-pill {
+    @apply bg-secondary/30 backdrop-blur-sm text-foreground px-4 py-2 rounded-full text-sm font-medium
+           border border-border/50 transition-all duration-300 hover:bg-primary/20 hover:border-primary/50
+           hover:text-primary hover:scale-105;
+  }
+  
+  .floating-card {
+    @apply glass-card;
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
   }
 }
