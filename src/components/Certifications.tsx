@@ -13,7 +13,8 @@ const Certifications = () => {
         { label: "Certificate", url: "https://www.udemy.com/certificate/UC-1f932d8e-97c1-4912-b0a9-cdc17b25c404/", icon: Award },
         { label: "Drive Link", url: "https://drive.google.com/file/d/1yNLVUzUD46pJSlecPtf_QtydD9F9oeI9/view?usp=drive_link", icon: Download }
       ],
-      badge: "Professional"
+      badge: "Professional",
+      image: "/lovable-uploads/03a48927-c34d-4be6-9a45-fdd437facfc5.png"
     },
     {
       title: "AI Tools and ChatGPT",
@@ -24,7 +25,8 @@ const Certifications = () => {
       links: [
         { label: "Drive Link", url: "https://drive.google.com/file/d/1FWF3YyrnOceut6TGC1TCjckLCt7LSRFo/view?usp=sharing", icon: Download }
       ],
-      badge: "Innovation"
+      badge: "Innovation",
+      image: "/lovable-uploads/50f2fc1f-1af1-44b1-aa47-50e7c799cc66.png"
     }
   ];
 
@@ -43,6 +45,15 @@ const Certifications = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {certifications.map((cert, index) => (
             <div key={index} className="glass-card group">
+              {cert.image && (
+                <div className="mb-6 rounded-lg overflow-hidden">
+                  <img 
+                    src={cert.image} 
+                    alt={`${cert.title} Certificate`}
+                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+              )}
               <div className="flex items-start justify-between mb-6">
                 <div className="flex items-center space-x-4">
                   <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center border border-primary/20">
