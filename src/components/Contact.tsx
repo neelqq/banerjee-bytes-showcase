@@ -90,7 +90,7 @@ const Contact = () => {
               </div>
               
               <h3 className="text-2xl font-semibold mb-6 text-foreground">
-                Ready to Start a Project?
+                Let's Build Together
               </h3>
               
               <p className="text-foreground-secondary mb-10 leading-relaxed">

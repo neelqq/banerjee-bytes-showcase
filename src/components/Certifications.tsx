@@ -10,8 +10,8 @@ const Certifications = () => {
       description: "Comprehensive full-stack development course covering React.js frontend, Spring Boot backend, RESTful APIs, and database integration.",
       skills: ["Java", "Spring Boot", "React.js", "REST APIs", "MySQL"],
       links: [
-        { label: "Certificate", url: "#", icon: Award },
-        { label: "Drive Link", url: "#", icon: Download }
+        { label: "Certificate", url: "https://www.udemy.com/certificate/UC-1f932d8e-97c1-4912-b0a9-cdc17b25c404/", icon: Award },
+        { label: "Drive Link", url: "https://drive.google.com/file/d/1yNLVUzUD46pJSlecPtf_QtydD9F9oeI9/view?usp=drive_link", icon: Download }
       ],
       badge: "Professional"
     },
@@ -22,7 +22,7 @@ const Certifications = () => {
       description: "Advanced certification in AI-assisted development, prompt engineering, and leveraging AI tools for enhanced productivity in software development.",
       skills: ["AI Tools", "ChatGPT", "Prompt Engineering", "Productivity"],
       links: [
-        { label: "Drive Link", url: "#", icon: Download }
+        { label: "Drive Link", url: "https://drive.google.com/file/d/1FWF3YyrnOceut6TGC1TCjckLCt7LSRFo/view?usp=sharing", icon: Download }
       ],
       badge: "Innovation"
     }

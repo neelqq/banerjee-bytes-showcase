@@ -6,7 +6,7 @@ const Education = () => {
       degree: "Master of Computer Applications (MCA)",
       institution: "Lovely Professional University",
       period: "2023 – 2025",
-      status: "In Progress",
+      grade: "CGPA: 7.8",
       description: "Advanced studies in computer applications with focus on full-stack development, software engineering, and emerging technologies."
     },
     {
@@ -75,12 +75,7 @@ const Education = () => {
                         </div>
                         {edu.grade && (
                           <div className="text-accent font-medium">
-                            Grade: {edu.grade}
-                          </div>
-                        )}
-                        {edu.status && (
-                          <div className="text-accent font-medium">
-                            {edu.status}
+                            {edu.grade}
                           </div>
                         )}
                       </div>

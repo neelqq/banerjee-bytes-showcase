@@ -6,29 +6,34 @@ const Skills = () => {
       icon: "💻"
     },
     {
-      title: "Frontend Development",
-      skills: ["React.js", "HTML5", "CSS3", "Tailwind CSS", "Responsive Design"],
-      icon: "🎨"
+      title: "Web Development",
+      skills: ["React", "HTML", "CSS", "JavaScript", "RESTful APIs", "JSON"],
+      icon: "🌐"
     },
     {
-      title: "Backend Development", 
-      skills: ["Spring Boot", "RESTful APIs", "Microservices", "SQL"],
+      title: "Backend & Frameworks",
+      skills: ["Spring Boot", "Firebase", "SQL"],
       icon: "⚙️"
     },
     {
-      title: "Mobile Development",
-      skills: ["Android (Java)", "Android (Kotlin)", "Mobile UI/UX"],
+      title: "Mobile App Development",
+      skills: ["Android (Java & Kotlin)", "XML UI Design", "Firebase Integration"],
       icon: "📱"
     },
     {
-      title: "Game Development",
-      skills: ["Unity", "Unreal Engine 5", "Game Design", "3D Modeling"],
-      icon: "🎮"
+      title: "Core CS",
+      skills: ["Data Structures & Algorithms", "Object-Oriented Programming", "Software Design Principles", "Problem-Solving"],
+      icon: "🧠"
     },
     {
-      title: "Tools & Platforms",
-      skills: ["Firebase", "Git", "AI Tools (ChatGPT)", "GitHub Copilot", "Lovable AI"],
+      title: "Tools, IDEs & Game Engines",
+      skills: ["Visual Studio Code", "Android Studio", "Unity Game Engine", "Unreal Engine 5"],
       icon: "🛠️"
+    },
+    {
+      title: "AI & Automation Tools",
+      skills: ["ChatGPT", "Cursor AI", "Trae AI", "Lovable AI", "Claude.ai", "Copilot AI", "Wrap AI"],
+      icon: "🤖"
     }
   ];
 

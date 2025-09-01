@@ -9,8 +9,8 @@ const Projects = () => {
       description: "Full-stack e-commerce platform built with React.js frontend and Spring Boot backend, featuring user authentication, product management, and secure payment processing.",
       technologies: ["React.js", "Spring Boot", "Java", "REST APIs"],
       links: [
-        { label: "Frontend", url: "#", icon: ExternalLink },
-        { label: "Backend", url: "#", icon: Github }
+        { label: "Frontend", url: "https://github.com/neelqq/e-commerce-front-end", icon: ExternalLink },
+        { label: "Backend", url: "https://github.com/neelqq/e-commerce-back-end", icon: Github }
       ],
       status: "Featured"
     },
@@ -20,7 +20,7 @@ const Projects = () => {
       description: "Comprehensive attendance tracking application with user management, real-time updates, and detailed reporting capabilities.",
       technologies: ["Java", "Android", "SQLite", "Material Design"],
       links: [
-        { label: "GitHub", url: "#", icon: Github }
+        { label: "GitHub", url: "https://github.com/neelqq/Attendance-Management-App", icon: Github }
       ],
       status: "Complete"
     },
@@ -30,7 +30,7 @@ const Projects = () => {
       description: "Real-time weather application with location-based forecasting, interactive UI, and weather alerts functionality.",
       technologies: ["Java", "Weather API", "Android", "JSON"],
       links: [
-        { label: "GitHub", url: "#", icon: Github }
+        { label: "GitHub", url: "https://github.com/neelqq/weather-application-for-android", icon: Github }
       ],
       status: "Complete"
     },
@@ -40,7 +40,7 @@ const Projects = () => {
       description: "Immersive 3D car driving simulator with realistic physics, multiple vehicle options, and dynamic environments.",
       technologies: ["Unity", "C#", "3D Physics", "Game Design"],
       links: [
-        { label: "Demo Video", url: "#", icon: Play }
+        { label: "Demo Video", url: "https://www.youtube.com/watch?v=EaPGle-sY4U", icon: Play }
       ],
       status: "Featured"
     }
