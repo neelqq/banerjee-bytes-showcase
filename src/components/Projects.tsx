@@ -37,8 +37,8 @@ const Projects = () => {
     {
       title: "Car Driving Simulator",
       year: "2025",
-      description: "Immersive 3D car driving simulator with realistic physics, multiple vehicle options, and dynamic environments.",
-      technologies: ["Unity", "C#", "3D Physics", "Game Design"],
+      description: "Designed and developed a realistic car driving simulator using Unreal Engine 5. Implemented advanced vehicle physics, environmental interactions, and responsive controls to create an immersive driving experience. Focused on optimizing performance for smooth gameplay with high graphical fidelity.",
+      technologies: ["Unreal Engine 5", "C++", "3D Physics", "Game Design"],
       links: [
         { label: "Demo Video", url: "https://www.youtube.com/watch?v=EaPGle-sY4U", icon: Play }
       ],
