@@ -62,11 +62,11 @@ const Projects = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {projects.map((project, index) => (
-            <div key={index} className="glass-card group hover:scale-[1.02]">
+            <div key={index} className="glass-card group">
               <div className="flex justify-between items-start mb-6">
                 <div className="flex items-center space-x-3">
-                  <Zap className="text-primary w-6 h-6 group-hover:scale-110 transition-transform" />
-                  <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
+                  <Zap className="text-primary w-6 h-6" />
+                  <h3 className="text-xl font-semibold text-foreground">
                     {project.title}
                   </h3>
                 </div>
@@ -100,7 +100,7 @@ const Projects = () => {
                     key={linkIndex}
                     variant="outline"
                     size="sm"
-                    className="border-primary/50 text-primary hover:bg-primary/10 backdrop-blur-sm hover:scale-105 transition-all"
+                    className="border-primary/50 text-primary hover:bg-primary/10 backdrop-blur-sm"
                     asChild
                   >
                     <a href={link.url} target="_blank" rel="noopener noreferrer">
