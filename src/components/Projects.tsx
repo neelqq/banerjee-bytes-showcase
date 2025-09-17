@@ -42,7 +42,7 @@ const Projects = () => {
       description: "Realistic car driving simulator game using Unreal Engine 5 with advanced physics.",
       technologies: ["Unreal Engine 5", "C++", "3D Physics"],
       links: [
-        { label: "Demo Video", url: "https://www.youtube.com/watch?v=EaPGle-sY4U", icon: Play }
+        { label: "Demo Video", url: "https://youtu.be/EaPGle-sY4U", icon: Play }
       ],
       status: "Featured"
     }
