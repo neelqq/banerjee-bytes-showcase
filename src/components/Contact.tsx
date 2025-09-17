@@ -33,13 +33,12 @@ const Contact = () => {
   return (
     <section id="contact" className="py-20 relative">
       <div className="section-container">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-6xl font-bold mb-8">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-5xl font-bold mb-6">
             Let's <span className="neon-text">Connect</span>
           </h2>
           <p className="text-lg text-foreground-secondary max-w-2xl mx-auto">
-            Ready to collaborate on your next project? I'm always open to discussing new opportunities 
-            and innovative ideas. Let's build something amazing together!
+            Let's collaborate on your next project!
           </p>
         </div>
 

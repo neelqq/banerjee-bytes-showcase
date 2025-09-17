@@ -3,15 +3,13 @@ const About = () => {
     <section id="about" className="py-20 relative">
       <div className="section-container">
         <div className="max-w-5xl mx-auto text-center">
-          <h2 className="text-4xl md:text-6xl font-bold mb-8">
+          <h2 className="text-3xl md:text-5xl font-bold mb-6">
             About <span className="neon-text">Me</span>
           </h2>
           
-          <div className="floating-card mb-12">
-            <p className="text-lg md:text-xl text-foreground-secondary leading-relaxed mb-8">
-              Innovative and adaptive Java Full Stack Developer with expertise in React.js, Spring Boot, 
-              and AI-assisted tools. Passionate about building scalable, user-centric applications that 
-              solve real-world problems with cutting-edge technology.
+          <div className="floating-card mb-10">
+            <p className="text-lg text-foreground-secondary leading-relaxed mb-6">
+              Java Full Stack Developer with React.js, Spring Boot, and AI tools expertise.
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

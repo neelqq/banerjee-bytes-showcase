@@ -33,12 +33,12 @@ const Certifications = () => {
   return (
     <section id="certifications" className="py-20 relative">
       <div className="section-container">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-6xl font-bold mb-8">
-            <span className="neon-text">Certifications</span> & Training
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-5xl font-bold mb-6">
+            <span className="neon-text">Certifications</span>
           </h2>
           <p className="text-lg text-foreground-secondary max-w-2xl mx-auto">
-            Continuous learning and professional development in cutting-edge technologies
+            Professional achievements
           </p>
         </div>
 

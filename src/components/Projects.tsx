@@ -6,7 +6,7 @@ const Projects = () => {
     {
       title: "E-commerce Web Application",
       year: "2025",
-      description: "Full-stack e-commerce platform built with React.js frontend and Spring Boot backend, featuring user authentication, product management, and secure payment processing.",
+      description: "Full-stack e-commerce platform with React.js frontend and Spring Boot backend.",
       technologies: ["React.js", "Spring Boot", "Java", "REST APIs"],
       links: [
         { label: "Frontend", url: "https://github.com/neelqq/e-commerce-front-end", icon: ExternalLink },
@@ -15,30 +15,32 @@ const Projects = () => {
       status: "Featured"
     },
     {
-      title: "Attendance Management System",
-      year: "2022", 
-      description: "Comprehensive attendance tracking application with user management, real-time updates, and detailed reporting capabilities.",
-      technologies: ["Java", "Android", "SQLite", "Material Design"],
+      title: "Library Management System",
+      year: "2024",
+      description: "Full-stack library management system with React frontend, Spring Boot backend, and MongoDB.",
+      technologies: ["React", "Spring Boot", "MongoDB", "REST APIs"],
       links: [
-        { label: "GitHub", url: "https://github.com/neelqq/Attendance-Management-App", icon: Github }
+        { label: "Frontend", url: "https://github.com/neelqq/library-management-system-frontend", icon: ExternalLink },
+        { label: "Backend", url: "https://github.com/neelqq/library-management-system-backend", icon: Github },
+        { label: "Demo", url: "https://youtu.be/jGBUgKv0wK0", icon: Play }
       ],
-      status: "Complete"
+      status: "Featured"
     },
     {
-      title: "Weather Application",
-      year: "2022",
-      description: "Real-time weather application with location-based forecasting, interactive UI, and weather alerts functionality.",
-      technologies: ["Java", "Weather API", "Android", "JSON"],
+      title: "News Management System",
+      year: "2024",
+      description: "Secure news management system with Spring Boot security and SQL database.",
+      technologies: ["Spring Boot", "Spring Security", "SQL", "Java"],
       links: [
-        { label: "GitHub", url: "https://github.com/neelqq/weather-application-for-android", icon: Github }
+        { label: "GitHub", url: "https://github.com/neelqq/news-management-system-backend-spring-boot", icon: Github }
       ],
       status: "Complete"
     },
     {
       title: "Car Driving Simulator",
       year: "2025",
-      description: "Designed and developed a realistic car driving simulator using Unreal Engine 5. Implemented advanced vehicle physics, environmental interactions, and responsive controls to create an immersive driving experience. Focused on optimizing performance for smooth gameplay with high graphical fidelity.",
-      technologies: ["Unreal Engine 5", "C++", "3D Physics", "Game Design"],
+      description: "Realistic car driving simulator game using Unreal Engine 5 with advanced physics.",
+      technologies: ["Unreal Engine 5", "C++", "3D Physics"],
       links: [
         { label: "Demo Video", url: "https://www.youtube.com/watch?v=EaPGle-sY4U", icon: Play }
       ],
@@ -49,12 +51,12 @@ const Projects = () => {
   return (
     <section id="projects" className="py-20 relative">
       <div className="section-container">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-6xl font-bold mb-8">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-5xl font-bold mb-6">
             Featured <span className="neon-text">Projects</span>
           </h2>
           <p className="text-lg text-foreground-secondary max-w-2xl mx-auto">
-            A collection of applications and systems I've built using modern technologies
+            Recent applications I've built
           </p>
         </div>
 
