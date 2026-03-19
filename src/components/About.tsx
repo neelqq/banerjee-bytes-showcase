@@ -1,31 +1,31 @@
 const About = () => {
+  const stats = [
+    { value: "3+", label: "yrs_learning" },
+    { value: "10+", label: "technologies" },
+    { value: "5+", label: "projects" },
+  ];
+
   return (
-    <section id="about" className="py-14">
+    <section id="about" className="py-12">
       <div className="section-container">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-4">
-            About <span className="heading-accent">Me</span>
-          </h2>
-          
-          <div className="card-base mb-8">
-            <p className="text-foreground-secondary leading-relaxed mb-6 text-sm">
-              Java Full Stack Developer seeking an opportunity to contribute to backend-heavy projects while continuously improving system design and performance.
-            </p>
-            
-            <div className="grid grid-cols-3 gap-6">
-              <div>
-                <div className="text-2xl font-bold text-primary mb-1">3+</div>
-                <div className="text-muted-foreground text-sm">Years Learning</div>
+        <h2 className="text-2xl font-mono font-bold mb-6"><span className="cyan">##</span> about_me</h2>
+        <div className="terminal-card">
+          <div className="terminal-header">
+            <span className="terminal-dot bg-red-500"></span>
+            <span className="terminal-dot bg-yellow-500"></span>
+            <span className="terminal-dot bg-green-500"></span>
+            <span className="text-xs text-muted-foreground ml-2 font-mono">stats.json</span>
+          </div>
+          <p className="text-sm text-muted-foreground font-mono mb-4">
+            // Seeking opportunity to contribute to backend-heavy projects while improving system design & performance.
+          </p>
+          <div className="grid grid-cols-3 gap-4">
+            {stats.map((s) => (
+              <div key={s.label} className="text-center">
+                <div className="text-xl font-bold cyan font-mono">{s.value}</div>
+                <div className="text-xs text-muted-foreground font-mono">{s.label}</div>
               </div>
-              <div>
-                <div className="text-2xl font-bold text-primary mb-1">10+</div>
-                <div className="text-muted-foreground text-sm">Technologies</div>
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-primary mb-1">5+</div>
-                <div className="text-muted-foreground text-sm">Projects</div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
