@@ -2,55 +2,64 @@ import { Mail, Phone, Linkedin, ExternalLink } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section id="home" className="min-h-[85vh] flex items-center pt-12">
+    <section id="home" className="min-h-[80vh] flex items-center pt-16">
       <div className="section-container">
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center">
-          <div className="lg:col-span-2 flex justify-center">
-            <div className="w-52 h-52 rounded-full overflow-hidden border-2 border-primary/40">
-              <img src="/lovable-uploads/3a35c934-4217-4b36-872c-4e3ed1f68d07.png" alt="Bratabitan Banerjee" className="w-full h-full object-cover" />
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+          <div className="flex justify-center lg:justify-end">
+            <div className="w-64 h-64 rounded-full overflow-hidden border-4 border-primary/20">
+              <img 
+                src="/lovable-uploads/3a35c934-4217-4b36-872c-4e3ed1f68d07.png" 
+                alt="Bratabitan Banerjee"
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
 
-          <div className="lg:col-span-3">
-            <div className="terminal-card">
-              <div className="terminal-header">
-                <span className="terminal-dot bg-red-500"></span>
-                <span className="terminal-dot bg-yellow-500"></span>
-                <span className="terminal-dot bg-green-500"></span>
-                <span className="text-xs text-muted-foreground ml-2 font-mono">about.sh</span>
-              </div>
-              
-              <div className="font-mono text-sm space-y-2">
-                <p className="text-muted-foreground">// MCA 2025 Graduate</p>
-                <p><span className="text-accent">const</span> <span className="cyan">name</span> = <span className="text-amber-400">"Bratabitan Banerjee"</span>;</p>
-                <p><span className="text-accent">const</span> <span className="cyan">role</span> = <span className="text-amber-400">"Java Full Stack Developer"</span>;</p>
-                <p className="text-muted-foreground mt-3">/* Hands-on experience building RESTful backends with Spring Boot, JWT auth, SQL & MongoDB. Focus on clean API design, CRUD ops, ORM, and scalable architecture. */</p>
-              </div>
+          <div className="text-center lg:text-left">
+            <span className="inline-block px-4 py-1 bg-accent text-accent-foreground rounded-full text-sm font-medium mb-4">
+              MCA 2025 Graduate
+            </span>
+            
+            <h1 className="text-4xl lg:text-5xl font-bold mb-4 text-foreground leading-tight">
+              Bratabitan <span className="heading-accent">Banerjee</span>
+            </h1>
+            
+            <p className="text-lg text-foreground-secondary mb-4">
+              Java Full Stack Developer
+            </p>
+
+            <p className="text-muted-foreground mb-6 max-w-lg text-sm leading-relaxed">
+              Hands-on experience in building RESTful backend systems using Spring Boot, secure authentication with JWT, and database-driven applications using SQL & MongoDB. Strong focus on clean API design, CRUD operations, ORM concepts, and scalable architecture.
+            </p>
+
+            <div className="flex flex-wrap gap-3 mb-8 justify-center lg:justify-start">
+              <button 
+                className="bg-primary text-primary-foreground font-medium rounded-lg px-6 py-2.5 text-sm"
+                onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                View Projects
+              </button>
+              <button 
+                className="border border-primary text-primary font-medium rounded-lg px-6 py-2.5 text-sm"
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                Contact Me
+              </button>
             </div>
 
-            <div className="flex flex-wrap gap-2 mt-4">
-              <button className="bg-primary text-primary-foreground font-mono text-xs px-4 py-2 rounded"
-                onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}>
-                ./view-projects
-              </button>
-              <button className="border border-primary cyan font-mono text-xs px-4 py-2 rounded"
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
-                ./contact-me
-              </button>
-            </div>
-
-            <div className="flex flex-wrap gap-2 mt-4">
-              {[
-                { href: "tel:+919002649893", icon: Phone, label: "call" },
-                { href: "mailto:banerjeebratabitan@gmail.com", icon: Mail, label: "email" },
-                { href: "https://www.linkedin.com/in/bratabitanbanerjee", icon: Linkedin, label: "linkedin", ext: true },
-                { href: "https://bratabitan.netlify.app", icon: ExternalLink, label: "portfolio", ext: true },
-              ].map((item) => (
-                <a key={item.label} href={item.href} target={item.ext ? "_blank" : undefined} rel={item.ext ? "noopener noreferrer" : undefined}
-                  className="terminal-card flex items-center gap-1.5 py-1.5 px-3 text-xs font-mono text-muted-foreground hover:cyan">
-                  <item.icon size={13} className="cyan" /> {item.label}
-                </a>
-              ))}
+            <div className="flex gap-3 justify-center lg:justify-start">
+              <a href="tel:+919002649893" className="card-base flex items-center gap-2 py-2 px-4 text-sm">
+                <Phone size={16} className="text-primary" /> Call
+              </a>
+              <a href="mailto:banerjeebratabitan@gmail.com" className="card-base flex items-center gap-2 py-2 px-4 text-sm">
+                <Mail size={16} className="text-primary" /> Email
+              </a>
+              <a href="https://www.linkedin.com/in/bratabitanbanerjee" target="_blank" rel="noopener noreferrer" className="card-base flex items-center gap-2 py-2 px-4 text-sm">
+                <Linkedin size={16} className="text-primary" /> LinkedIn
+              </a>
+              <a href="https://bratabitan.netlify.app" target="_blank" rel="noopener noreferrer" className="card-base flex items-center gap-2 py-2 px-4 text-sm">
+                <ExternalLink size={16} className="text-primary" /> Portfolio
+              </a>
             </div>
           </div>
         </div>
