@@ -3,80 +3,69 @@ import { ExternalLink, Github, Play } from 'lucide-react';
 const Projects = () => {
   const projects = [
     {
-      title: "E-commerce Web Application",
+      title: "e-commerce-app",
       year: "2025",
-      description: "Full-stack e-commerce platform with React.js frontend and Spring Boot backend.",
-      technologies: ["React.js", "Spring Boot", "Java", "REST APIs"],
+      desc: "Full-stack e-commerce with React.js + Spring Boot.",
+      tech: ["React.js", "Spring Boot", "Java", "REST APIs"],
       links: [
-        { label: "Frontend", url: "https://github.com/neelqq/e-commerce-front-end", icon: ExternalLink },
-        { label: "Backend", url: "https://github.com/neelqq/e-commerce-back-end", icon: Github }
+        { label: "frontend", url: "https://github.com/neelqq/e-commerce-front-end", icon: ExternalLink },
+        { label: "backend", url: "https://github.com/neelqq/e-commerce-back-end", icon: Github }
       ],
-      status: "Featured"
     },
     {
-      title: "Library Management System",
+      title: "library-mgmt-system",
       year: "2024",
-      description: "Full-stack library system with React, Spring Boot, and MongoDB.",
-      technologies: ["React", "Spring Boot", "MongoDB", "REST APIs"],
+      desc: "Library system with React, Spring Boot, MongoDB.",
+      tech: ["React", "Spring Boot", "MongoDB", "REST APIs"],
       links: [
-        { label: "Frontend", url: "https://github.com/neelqq/library-management-system-frontend", icon: ExternalLink },
-        { label: "Backend", url: "https://github.com/neelqq/library-management-system-backend", icon: Github },
-        { label: "Demo", url: "https://youtu.be/jGBUgKv0wK0", icon: Play }
+        { label: "frontend", url: "https://github.com/neelqq/library-management-system-frontend", icon: ExternalLink },
+        { label: "backend", url: "https://github.com/neelqq/library-management-system-backend", icon: Github },
+        { label: "demo", url: "https://youtu.be/jGBUgKv0wK0", icon: Play }
       ],
-      status: "Featured"
     },
     {
-      title: "News Management System",
+      title: "news-mgmt-system",
       year: "2024",
-      description: "Secure news management with Spring Boot security and SQL database.",
-      technologies: ["Spring Boot", "Spring Security", "SQL", "Java"],
+      desc: "Secure news management with Spring Security + SQL.",
+      tech: ["Spring Boot", "Spring Security", "SQL", "Java"],
       links: [
-        { label: "GitHub", url: "https://github.com/neelqq/news-management-system-backend-spring-boot", icon: Github }
+        { label: "github", url: "https://github.com/neelqq/news-management-system-backend-spring-boot", icon: Github }
       ],
-      status: "Complete"
     },
     {
-      title: "Car Driving Simulator",
+      title: "car-driving-sim",
       year: "2025",
-      description: "Realistic car driving simulator using Unreal Engine 5 with advanced physics.",
-      technologies: ["Unreal Engine 5", "C++", "3D Physics"],
+      desc: "Realistic driving simulator with Unreal Engine 5.",
+      tech: ["Unreal Engine 5", "C++", "3D Physics"],
       links: [
-        { label: "Demo Video", url: "https://youtu.be/EaPGle-sY4U", icon: Play }
+        { label: "demo", url: "https://youtu.be/EaPGle-sY4U", icon: Play }
       ],
-      status: "Featured"
     }
   ];
 
   return (
-    <section id="projects" className="py-14">
+    <section id="projects" className="py-12">
       <div className="section-container">
-        <div className="text-center mb-10">
-          <h2 className="text-3xl font-bold mb-3">
-            Featured <span className="heading-accent">Projects</span>
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {projects.map((project, index) => (
-            <div key={index} className="card-base">
-              <div className="flex justify-between items-start mb-4">
-                <h3 className="text-lg font-semibold text-foreground">{project.title}</h3>
-                <span className="text-xs font-medium text-primary bg-accent px-2 py-1 rounded-full">{project.year}</span>
+        <h2 className="text-2xl font-mono font-bold mb-6"><span className="cyan">##</span> projects</h2>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          {projects.map((p) => (
+            <div key={p.title} className="terminal-card">
+              <div className="terminal-header">
+                <span className="terminal-dot bg-red-500"></span>
+                <span className="terminal-dot bg-yellow-500"></span>
+                <span className="terminal-dot bg-green-500"></span>
+                <span className="text-xs text-muted-foreground ml-2 font-mono">{p.title}.ts</span>
+                <span className="ml-auto text-xs cyan font-mono">{p.year}</span>
               </div>
-              
-              <p className="text-foreground-secondary text-sm mb-4">{project.description}</p>
-              
-              <div className="flex flex-wrap gap-1.5 mb-4">
-                {project.technologies.map((tech, i) => (
-                  <span key={i} className="skill-pill text-xs">{tech}</span>
-                ))}
+              <p className="text-sm text-muted-foreground font-mono mb-3">{p.desc}</p>
+              <div className="flex flex-wrap gap-1.5 mb-3">
+                {p.tech.map((t) => <span key={t} className="skill-pill">{t}</span>)}
               </div>
-              
               <div className="flex flex-wrap gap-2">
-                {project.links.map((link, i) => (
-                  <a key={i} href={link.url} target="_blank" rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs font-medium text-primary border border-primary/30 rounded-lg px-3 py-1.5 hover:bg-accent">
-                    <link.icon size={14} /> {link.label}
+                {p.links.map((l) => (
+                  <a key={l.label} href={l.url} target="_blank" rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-xs font-mono cyan border border-border rounded px-2 py-1 hover:bg-secondary">
+                    <l.icon size={12} /> {l.label}
                   </a>
                 ))}
               </div>

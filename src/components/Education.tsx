@@ -1,55 +1,45 @@
-import { GraduationCap, Calendar } from 'lucide-react';
+import { GraduationCap } from 'lucide-react';
 
 const Education = () => {
   const education = [
-    { degree: "Master of Computer Applications (MCA)", institution: "Lovely Professional University", period: "2023 – 2025", grade: "CGPA: 7.8" },
-    { degree: "Bachelor of Computer Applications (BCA)", institution: "Burdwan Institute of Management & Computer Science", period: "2019 – 2022", grade: "87%" },
-    { degree: "Higher Secondary (12th)", institution: "Sehara Bazar C.K. Institution", period: "2019", grade: "62%" },
-    { degree: "Secondary (10th)", institution: "Sehara Bazar C.K. Institution", period: "2017", grade: "52%" },
+    { degree: "MCA", institution: "Lovely Professional University", period: "2023–2025", grade: "CGPA: 7.8" },
+    { degree: "BCA", institution: "Burdwan Institute of Mgmt & CS", period: "2019–2022", grade: "87%" },
+    { degree: "12th", institution: "Sehara Bazar C.K. Institution", period: "2019", grade: "62%" },
+    { degree: "10th", institution: "Sehara Bazar C.K. Institution", period: "2017", grade: "52%" },
   ];
 
   const languages = [
-    { language: "English", proficiency: "Proficient" },
-    { language: "Hindi", proficiency: "Fluent" },
-    { language: "Bengali", proficiency: "Native" },
+    { lang: "English", level: "Proficient" },
+    { lang: "Hindi", level: "Fluent" },
+    { lang: "Bengali", level: "Native" },
   ];
 
   return (
-    <section id="education" className="py-14">
+    <section id="education" className="py-12">
       <div className="section-container">
-        <div className="text-center mb-10">
-          <h2 className="text-3xl font-bold mb-3">
-            Education & <span className="heading-accent">Languages</span>
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <div className="lg:col-span-2 space-y-4">
-            {education.map((edu, index) => (
-              <div key={index} className="card-base flex items-start gap-3">
-                <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center flex-shrink-0">
-                  <GraduationCap className="text-primary" size={20} />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-foreground text-sm">{edu.degree}</h4>
-                  <p className="text-primary text-sm">{edu.institution}</p>
-                  <div className="flex items-center gap-3 text-muted-foreground text-xs mt-1">
-                    <span className="flex items-center gap-1"><Calendar size={12} />{edu.period}</span>
-                    <span className="text-primary font-medium">{edu.grade}</span>
-                  </div>
+        <h2 className="text-2xl font-mono font-bold mb-6"><span className="cyan">##</span> education</h2>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+          <div className="lg:col-span-2 space-y-3">
+            {education.map((e) => (
+              <div key={e.degree} className="terminal-card flex items-start gap-3">
+                <GraduationCap size={18} className="cyan mt-0.5 flex-shrink-0" />
+                <div className="font-mono">
+                  <span className="text-sm font-semibold text-foreground">{e.degree}</span>
+                  <span className="text-xs text-muted-foreground"> — {e.institution}</span>
+                  <div className="text-xs text-muted-foreground">{e.period} | <span className="cyan">{e.grade}</span></div>
                 </div>
               </div>
             ))}
           </div>
-
-          <div className="space-y-3">
-            <h3 className="font-semibold text-foreground mb-2">Languages</h3>
-            {languages.map((lang, index) => (
-              <div key={index} className="card-base flex justify-between items-center py-3">
-                <span className="text-sm font-medium text-foreground">{lang.language}</span>
-                <span className="text-sm text-primary">{lang.proficiency}</span>
-              </div>
-            ))}
+          <div>
+            <h3 className="text-sm font-mono green mb-3">/languages</h3>
+            <div className="space-y-2">
+              {languages.map((l) => (
+                <div key={l.lang} className="terminal-card flex justify-between py-2 px-4 text-xs font-mono">
+                  <span>{l.lang}</span><span className="cyan">{l.level}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
