@@ -17,83 +17,52 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = navLinks.map(link => document.getElementById(link.id));
       const scrollPosition = window.scrollY + 100;
-
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = sections[i];
+      for (let i = navLinks.length - 1; i >= 0; i--) {
+        const section = document.getElementById(navLinks[i].id);
         if (section && section.offsetTop <= scrollPosition) {
           setActiveSection(navLinks[i].id);
           break;
         }
       }
     };
-
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
     setIsOpen(false);
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-background/90 backdrop-blur-xl border-b border-border/50 z-50">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <div className="font-bold text-xl neon-text">
-            Bratabitan Banerjee
-          </div>
+    <nav className="fixed top-0 left-0 right-0 bg-background/95 backdrop-blur-sm border-b border-border z-50">
+      <div className="max-w-6xl mx-auto px-5">
+        <div className="flex items-center justify-between h-14">
+          <div className="font-bold text-lg text-primary">Bratabitan Banerjee</div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex gap-6">
             {navLinks.map((link) => (
-              <button
-                key={link.id}
-                onClick={() => scrollToSection(link.id)}
-                className={`font-medium transition-all duration-300 hover:text-primary ${
-                  activeSection === link.id
-                    ? 'text-primary border-b-2 border-primary pb-1'
-                    : 'text-foreground-secondary'
-                }`}
-              >
+              <button key={link.id} onClick={() => scrollToSection(link.id)}
+                className={`text-sm font-medium ${activeSection === link.id ? 'text-primary' : 'text-muted-foreground hover:text-foreground'}`}>
                 {link.label}
               </button>
             ))}
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-secondary transition-colors"
-          >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          <button onClick={() => setIsOpen(!isOpen)} className="md:hidden p-2">
+            {isOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
 
-        {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden py-4 border-t border-border">
-            <div className="flex flex-col space-y-3">
-              {navLinks.map((link) => (
-                <button
-                  key={link.id}
-                  onClick={() => scrollToSection(link.id)}
-                  className={`text-left py-2 font-medium transition-all duration-300 hover:text-primary ${
-                    activeSection === link.id
-                      ? 'text-primary'
-                      : 'text-foreground-secondary'
-                  }`}
-                >
-                  {link.label}
-                </button>
-              ))}
-            </div>
+          <div className="md:hidden py-3 border-t border-border">
+            {navLinks.map((link) => (
+              <button key={link.id} onClick={() => scrollToSection(link.id)}
+                className={`block w-full text-left py-2 text-sm ${activeSection === link.id ? 'text-primary font-medium' : 'text-muted-foreground'}`}>
+                {link.label}
+              </button>
+            ))}
           </div>
         )}
       </div>
