@@ -4,35 +4,35 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 220 20% 15%;
-    --foreground-secondary: 220 10% 50%;
-    
-    --card: 210 40% 98%;
-    --card-foreground: 220 20% 15%;
-    
+    --background: 210 20% 98%;
+    --foreground: 220 25% 10%;
+    --foreground-secondary: 220 10% 45%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 10%;
+
     --popover: 0 0% 100%;
-    --popover-foreground: 220 20% 15%;
-    
-    --primary: 217 91% 50%;
+    --popover-foreground: 220 25% 10%;
+
+    --primary: 220 80% 50%;
     --primary-foreground: 0 0% 100%;
-    
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 220 20% 15%;
-    
-    --muted: 210 40% 96%;
+
+    --secondary: 220 15% 94%;
+    --secondary-foreground: 220 25% 10%;
+
+    --muted: 220 15% 94%;
     --muted-foreground: 220 10% 50%;
-    
-    --accent: 210 60% 95%;
-    --accent-foreground: 217 91% 40%;
-    
+
+    --accent: 220 50% 95%;
+    --accent-foreground: 220 80% 40%;
+
     --destructive: 0 72% 50%;
     --destructive-foreground: 0 0% 100%;
-    
-    --border: 214 20% 90%;
-    --input: 214 20% 90%;
-    --ring: 217 91% 50%;
-    
+
+    --border: 220 15% 90%;
+    --input: 220 15% 90%;
+    --ring: 220 80% 50%;
+
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
@@ -42,7 +42,7 @@
     --sidebar-accent: 240 4.8% 95.9%;
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217 91% 50%;
+    --sidebar-ring: 220 80% 50%;
   }
 }
 
@@ -50,12 +50,10 @@
   * {
     @apply border-border;
   }
-
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-family: system-ui, -apple-system, sans-serif;
   }
-  
   html {
     scroll-behavior: smooth;
   }
@@ -63,18 +61,15 @@
 
 @layer components {
   .section-container {
-    @apply max-w-6xl mx-auto px-5 py-14;
+    @apply max-w-5xl mx-auto px-4 py-10;
   }
-  
   .card-base {
-    @apply bg-card rounded-xl p-6 border border-border;
+    @apply bg-card rounded-lg p-4 border border-border;
   }
-  
   .heading-accent {
     @apply text-primary;
   }
-  
   .skill-pill {
-    @apply bg-accent text-accent-foreground px-3 py-1.5 rounded-full text-sm font-medium border border-primary/10;
+    @apply bg-accent text-accent-foreground px-2.5 py-1 rounded-full text-xs font-medium;
   }
 }
