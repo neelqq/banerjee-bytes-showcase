@@ -1,47 +1,66 @@
+import { GraduationCap, Calendar } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+
 const education = [
-  { degree: "MCA", school: "Lovely Professional University", year: "2023–2025", grade: "CGPA: 7.8" },
-  { degree: "BCA", school: "Burdwan Institute of Management & CS", year: "2019–2022", grade: "87%" },
-  { degree: "12th", school: "Sehara Bazar C.K. Institution", year: "2019", grade: "62%" },
-  { degree: "10th", school: "Sehara Bazar C.K. Institution", year: "2017", grade: "52%" },
+  {
+    degree: "Master of Computer Applications (MCA)",
+    school: "Lovely Professional University",
+    period: "Aug 2023 – Jun 2025",
+    grade: "CGPA: 7.8/10",
+    location: "Jalandhar, Punjab",
+  },
+  {
+    degree: "Bachelor of Computer Applications (BCA)",
+    school: "Burdwan Institute of Management & Computer Science",
+    period: "Aug 2019 – May 2022",
+    grade: "87%",
+    location: "Burdwan, West Bengal",
+  },
 ];
 
-const languages = [
-  { lang: "English", level: "Proficient" },
-  { lang: "Hindi", level: "Fluent" },
-  { lang: "Bengali", level: "Native" },
-];
+const Education = () => {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
 
-const Education = () => (
-  <section id="education" className="py-8">
-    <div className="section-container">
-      <h2 className="text-xl font-bold mb-6 text-center">Education & <span className="heading-accent">Languages</span></h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-        <div className="md:col-span-2 space-y-2">
+  useEffect(() => {
+    const obs = new IntersectionObserver(([e]) => e.isIntersecting && setVisible(true), { threshold: 0.2 });
+    if (ref.current) obs.observe(ref.current);
+    return () => obs.disconnect();
+  }, []);
+
+  return (
+    <section id="education" className="py-16">
+      <div ref={ref} className={`section-container transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+        <h2 className="text-3xl font-bold mb-10 text-center">
+          <span className="gradient-text">Education</span>
+        </h2>
+
+        <div className="max-w-3xl mx-auto space-y-4">
           {education.map((e, i) => (
-            <div key={i} className="card-base flex justify-between items-center">
-              <div>
-                <h4 className="text-xs font-semibold text-foreground">{e.degree}</h4>
-                <p className="text-xs text-muted-foreground">{e.school}</p>
+            <div key={i} className="glass-card p-5 rounded-lg hover:border-primary/30 transition-all duration-300 group">
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0"
+                  style={{ background: 'hsla(190, 100%, 50%, 0.1)' }}>
+                  <GraduationCap size={20} className="text-primary" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-base font-semibold text-foreground">{e.degree}</h3>
+                  <p className="text-sm text-primary">{e.school}</p>
+                  <div className="flex flex-wrap items-center gap-3 mt-2 text-xs text-muted-foreground">
+                    <span className="flex items-center gap-1">
+                      <Calendar size={11} /> {e.period}
+                    </span>
+                    <span className="text-primary font-medium">{e.grade}</span>
+                    <span>{e.location}</span>
+                  </div>
+                </div>
               </div>
-              <div className="text-right">
-                <span className="text-xs text-muted-foreground">{e.year}</span>
-                <div className="text-xs font-medium text-primary">{e.grade}</div>
-              </div>
-            </div>
-          ))}
-        </div>
-        <div className="space-y-2">
-          <h3 className="text-xs font-semibold text-foreground mb-1">Languages</h3>
-          {languages.map((l, i) => (
-            <div key={i} className="card-base flex justify-between py-2">
-              <span className="text-xs text-foreground">{l.lang}</span>
-              <span className="text-xs text-primary">{l.level}</span>
             </div>
           ))}
         </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default Education;

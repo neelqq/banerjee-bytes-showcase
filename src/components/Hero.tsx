@@ -1,40 +1,93 @@
-import { Mail, Phone, Linkedin, ExternalLink } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { ArrowDown } from 'lucide-react';
 
-const Hero = () => (
-  <section id="home" className="pt-16 pb-8">
-    <div className="section-container">
-      <div className="flex flex-col md:flex-row gap-6 items-center">
-        <img
-          src="/lovable-uploads/3a35c934-4217-4b36-872c-4e3ed1f68d07.png"
-          alt="Bratabitan Banerjee"
-          className="w-28 h-28 rounded-full object-cover border-2 border-primary/20"
-          loading="eager"
-        />
-        <div className="text-center md:text-left">
-          <span className="inline-block px-3 py-0.5 bg-accent text-accent-foreground rounded-full text-xs font-medium mb-2">MCA 2025</span>
-          <h1 className="text-2xl md:text-3xl font-bold mb-1">Bratabitan <span className="heading-accent">Banerjee</span></h1>
-          <p className="text-sm text-foreground-secondary mb-2">Java Full Stack Developer</p>
-          <p className="text-xs text-muted-foreground max-w-md leading-relaxed mb-3">
-            Hands-on experience building RESTful systems with Spring Boot, JWT auth, and SQL/MongoDB. Focused on clean API design, scalable architecture, and backend-heavy projects.
+const roles = [
+  'Software Developer',
+  'Java & Spring Boot Engineer',
+  'AI-Powered Backend Developer',
+  'Full Stack Builder',
+];
+
+const Hero = () => {
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [text, setText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const current = roles[roleIndex];
+    const timeout = setTimeout(() => {
+      if (!isDeleting) {
+        setText(current.slice(0, text.length + 1));
+        if (text.length + 1 === current.length) {
+          setTimeout(() => setIsDeleting(true), 1800);
+        }
+      } else {
+        setText(current.slice(0, text.length - 1));
+        if (text.length === 0) {
+          setIsDeleting(false);
+          setRoleIndex((prev) => (prev + 1) % roles.length);
+        }
+      }
+    }, isDeleting ? 40 : 80);
+    return () => clearTimeout(timeout);
+  }, [text, isDeleting, roleIndex]);
+
+  return (
+    <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
+      {/* Animated background shapes */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 -left-32 w-96 h-96 rounded-full opacity-[0.07] animate-float"
+          style={{ background: 'radial-gradient(circle, hsl(190 100% 50%), transparent 70%)' }} />
+        <div className="absolute bottom-1/4 -right-32 w-80 h-80 rounded-full opacity-[0.05] animate-float"
+          style={{ background: 'radial-gradient(circle, hsl(260 85% 55%), transparent 70%)', animationDelay: '3s' }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-[0.03]"
+          style={{ background: 'radial-gradient(circle, hsl(190 100% 50%), transparent 60%)' }} />
+      </div>
+
+      <div className="section-container relative z-10">
+        <div className="max-w-3xl">
+          <div className="inline-flex items-center gap-2 glass-card px-4 py-1.5 rounded-full mb-6 animate-fade-in">
+            <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+            <span className="text-xs text-muted-foreground">Available for opportunities</span>
+          </div>
+
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 animate-fade-in" style={{ animationDelay: '0.1s' }}>
+            Hi, I'm{' '}
+            <span className="gradient-text neon-text">Bratabitan Banerjee</span>
+          </h1>
+
+          <div className="text-xl sm:text-2xl lg:text-3xl font-semibold mb-6 h-10 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+            <span className="text-foreground-secondary">{text}</span>
+            <span className="border-r-2 border-primary ml-0.5 animate-typewriter-cursor">&nbsp;</span>
+          </div>
+
+          <p className="text-muted-foreground text-sm sm:text-base max-w-xl leading-relaxed mb-8 animate-fade-in" style={{ animationDelay: '0.3s' }}>
+            Building scalable APIs & intelligent applications with Java, Spring Boot,
+            RAG & LLM Integration.
           </p>
-          <div className="flex gap-2 flex-wrap justify-center md:justify-start">
-            <a href="tel:+919002649893" className="inline-flex items-center gap-1 text-xs text-primary border border-border rounded px-2.5 py-1">
-              <Phone size={12} /> Call
-            </a>
-            <a href="mailto:banerjeebratabitan@gmail.com" className="inline-flex items-center gap-1 text-xs text-primary border border-border rounded px-2.5 py-1">
-              <Mail size={12} /> Email
-            </a>
-            <a href="https://www.linkedin.com/in/bratabitanbanerjee" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs text-primary border border-border rounded px-2.5 py-1">
-              <Linkedin size={12} /> LinkedIn
-            </a>
-            <a href="https://bratabitan.netlify.app" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs text-primary border border-border rounded px-2.5 py-1">
-              <ExternalLink size={12} /> Portfolio
-            </a>
+
+          <div className="flex gap-3 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+            <button
+              onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+              className="btn-primary"
+            >
+              View Projects
+            </button>
+            <button
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              className="btn-outline"
+            >
+              Contact Me
+            </button>
           </div>
         </div>
+
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-float">
+          <ArrowDown size={20} className="text-muted-foreground" />
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default Hero;
