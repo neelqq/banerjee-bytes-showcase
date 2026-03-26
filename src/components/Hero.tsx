@@ -33,7 +33,7 @@ const Hero = () => {
   }, [text, isDeleting, roleIndex]);
 
   return (
-    <section id="home" className="relative min-h-[100svh] flex items-center overflow-hidden">
+    <section id="home" className="relative min-h-[85svh] sm:min-h-[90svh] flex items-center overflow-hidden">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 -left-16 sm:-left-32 w-48 sm:w-96 h-48 sm:h-96 rounded-full opacity-[0.07] animate-float"
           style={{ background: 'radial-gradient(circle, hsl(190 100% 50%), transparent 70%)' }} />
