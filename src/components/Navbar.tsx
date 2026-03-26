@@ -40,10 +40,10 @@ const Navbar = () => {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'glass-card border-b border-border/50' : 'bg-transparent'}`}>
-      <div className="max-w-6xl mx-auto px-5 flex items-center justify-between h-14">
-        <button onClick={() => scrollTo('home')} className="text-xl font-bold gradient-text">BB</button>
-        
-        <div className="hidden md:flex gap-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-5 flex items-center justify-between h-12 sm:h-14">
+        <button onClick={() => scrollTo('home')} className="text-lg sm:text-xl font-bold gradient-text">BB</button>
+
+        <div className="hidden md:flex gap-4 lg:gap-6">
           {navLinks.map((l) => (
             <button
               key={l.id}
@@ -57,13 +57,13 @@ const Navbar = () => {
           ))}
         </div>
 
-        <button onClick={() => setIsOpen(!isOpen)} className="md:hidden p-2 text-foreground">
+        <button onClick={() => setIsOpen(!isOpen)} className="md:hidden p-1.5 text-foreground">
           {isOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
       </div>
 
       {isOpen && (
-        <div className="md:hidden glass-card mx-4 mb-2 p-3 rounded-lg animate-scale-in">
+        <div className="md:hidden glass-card mx-3 sm:mx-4 mb-2 p-2 sm:p-3 rounded-lg animate-scale-in">
           {navLinks.map((l) => (
             <button
               key={l.id}

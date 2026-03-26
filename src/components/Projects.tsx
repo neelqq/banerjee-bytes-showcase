@@ -41,41 +41,41 @@ const Projects = () => {
   }, []);
 
   return (
-    <section id="projects" className="py-16">
+    <section id="projects">
       <div ref={ref} className={`section-container transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-        <h2 className="text-3xl font-bold mb-10 text-center">
+        <h2 className="section-heading">
           Featured <span className="gradient-text">Projects</span>
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-5">
           {projects.map((p, i) => (
             <div
               key={i}
-              className="glass-card p-5 rounded-lg group hover:border-primary/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_hsla(190,100%,50%,0.1)]"
+              className="glass-card p-4 sm:p-5 rounded-lg group hover:border-primary/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_hsla(190,100%,50%,0.1)]"
             >
-              <div className="flex items-center gap-2 mb-3">
-                <div className="w-2 h-2 rounded-full bg-primary group-hover:shadow-[0_0_8px_hsl(190,100%,50%)] transition-all" />
-                <h3 className="text-base font-semibold text-foreground">{p.title}</h3>
+              <div className="flex items-center gap-2 mb-2 sm:mb-3">
+                <div className="w-2 h-2 rounded-full bg-primary group-hover:shadow-[0_0_8px_hsl(190,100%,50%)] transition-all shrink-0" />
+                <h3 className="text-sm sm:text-base font-semibold text-foreground">{p.title}</h3>
               </div>
 
-              <p className="text-xs text-muted-foreground mb-4 leading-relaxed">{p.desc}</p>
+              <p className="text-[0.6875rem] sm:text-xs text-muted-foreground mb-3 sm:mb-4 leading-relaxed">{p.desc}</p>
 
-              <div className="flex flex-wrap gap-1.5 mb-4">
+              <div className="flex flex-wrap gap-1 sm:gap-1.5 mb-3 sm:mb-4">
                 {p.tech.map((t, j) => (
-                  <span key={j} className="skill-pill text-[10px] px-2 py-1">{t}</span>
+                  <span key={j} className="skill-pill">{t}</span>
                 ))}
               </div>
 
-              <div className="flex flex-wrap gap-2 pt-3 border-t border-border/50">
+              <div className="flex flex-wrap gap-2 pt-2 sm:pt-3 border-t border-border/50">
                 {p.links.map((l, j) => (
                   <a
                     key={j}
                     href={l.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs text-primary hover:text-accent transition-colors duration-200"
+                    className="inline-flex items-center gap-1.5 text-[0.6875rem] sm:text-xs text-primary hover:text-accent transition-colors duration-200"
                   >
-                    <l.icon size={13} /> {l.label}
+                    <l.icon size={12} /> {l.label}
                   </a>
                 ))}
               </div>
