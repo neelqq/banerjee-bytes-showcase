@@ -3,6 +3,12 @@ import { useEffect, useRef, useState } from 'react';
 
 const projects = [
   {
+    title: "AI Chemist – Intelligent Medicine Assistant",
+    desc: "Production-grade RAG system retrieving medicines from MongoDB Atlas vector store based on symptoms. JWT auth with Spring Security, Ollama (Llama3) via Spring AI for conversational recommendations, and full data pipeline from embedding generation to semantic search.",
+    tech: ["Java", "Spring Boot", "Spring AI", "React", "MongoDB Atlas", "Ollama (Llama3)"],
+    links: [],
+  },
+  {
     title: "News Management System",
     desc: "RESTful APIs with CRUD for news & users, JWT authentication with Spring Security, JPA/Hibernate for data persistence.",
     tech: ["Java", "Spring Boot", "Spring Security", "SQL"],
