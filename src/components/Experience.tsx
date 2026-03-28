@@ -1,4 +1,4 @@
-import { Briefcase } from 'lucide-react';
+import { Briefcase, MapPin, Calendar } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 
 const Experience = () => {
@@ -13,48 +13,51 @@ const Experience = () => {
 
   return (
     <section id="experience">
-      <div ref={ref} className={`section-container transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+      <div ref={ref} className={`section-container transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <h2 className="section-heading">
           Work <span className="gradient-text">Experience</span>
         </h2>
 
         <div className="max-w-3xl mx-auto">
-          <div className="relative pl-6 sm:pl-8 border-l border-primary/30">
-            <div className="absolute -left-[9px] top-0 w-[18px] h-[18px] rounded-full bg-background border-2 border-primary flex items-center justify-center">
-              <div className="w-2 h-2 rounded-full bg-primary" />
+          <div className="relative pl-8 sm:pl-10">
+            {/* Timeline line */}
+            <div className="absolute left-[11px] sm:left-[13px] top-2 bottom-2 w-px bg-gradient-to-b from-primary/50 via-accent/30 to-transparent" />
+
+            {/* Timeline dot */}
+            <div className="absolute left-0 sm:left-0 top-0 w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-background border-2 border-primary flex items-center justify-center shadow-[0_0_12px_hsla(192,100%,50%,0.3)]">
+              <Briefcase size={12} className="text-primary" />
             </div>
 
-            <div className="glass-card p-4 sm:p-6 rounded-lg">
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3">
+            <div className="glass-card p-5 sm:p-7 rounded-xl">
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-4">
                 <div>
-                  <h3 className="text-sm sm:text-lg font-semibold text-foreground flex items-center gap-2">
-                    <Briefcase size={16} className="text-primary shrink-0" />
+                  <h3 className="text-base sm:text-lg font-bold text-foreground">
                     Software Developer
                   </h3>
-                  <p className="text-xs sm:text-sm text-primary">PCS Global Pvt. Ltd.</p>
+                  <p className="text-sm sm:text-base text-primary font-medium">PCS Global Pvt. Ltd.</p>
                 </div>
-                <div className="text-[0.6875rem] sm:text-xs text-muted-foreground mt-1 sm:mt-0 sm:text-right">
-                  <div>Aug 2025 – Nov 2025</div>
-                  <div>Employee ID: 4123</div>
+                <div className="flex flex-wrap gap-3 text-xs sm:text-sm text-muted-foreground">
+                  <span className="inline-flex items-center gap-1.5">
+                    <Calendar size={12} className="text-primary/70" /> Aug 2025 – Nov 2025
+                  </span>
+                  <span className="mono text-primary/60 text-xs">ID: 4123</span>
                 </div>
               </div>
 
-              <ul className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-muted-foreground">
-                <li className="flex gap-2">
-                  <span className="text-primary mt-1 shrink-0">▹</span>
-                  Full stack development with React.js, Spring Boot, and relational databases
-                </li>
-                <li className="flex gap-2">
-                  <span className="text-primary mt-1 shrink-0">▹</span>
-                  Cross-functional team collaboration on enterprise applications
-                </li>
-                <li className="flex gap-2">
-                  <span className="text-primary mt-1 shrink-0">▹</span>
-                  API integration and optimization for production systems
-                </li>
+              <ul className="space-y-2.5 text-sm text-muted-foreground mb-5">
+                {[
+                  'Full stack development with React.js, Spring Boot, and relational databases',
+                  'Cross-functional team collaboration on enterprise applications',
+                  'API integration and optimization for production systems',
+                ].map((item, i) => (
+                  <li key={i} className="flex gap-3 items-start">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary/60 mt-2 shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
               </ul>
 
-              <div className="flex flex-wrap gap-1.5 sm:gap-2 mt-3 sm:mt-4">
+              <div className="flex flex-wrap gap-2">
                 {["React.js", "Spring Boot", "SQL", "REST APIs"].map((t, i) => (
                   <span key={i} className="skill-pill">{t}</span>
                 ))}

@@ -8,7 +8,6 @@ const navLinks = [
   { id: 'experience', label: 'Experience' },
   { id: 'projects', label: 'Projects' },
   { id: 'education', label: 'Education' },
-  { id: 'certifications', label: 'Certs' },
   { id: 'contact', label: 'Contact' },
 ];
 
@@ -39,17 +38,23 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'glass-card border-b border-border/50' : 'bg-transparent'}`}>
-      <div className="max-w-6xl mx-auto px-4 sm:px-5 flex items-center justify-between h-12 sm:h-14">
-        <button onClick={() => scrollTo('home')} className="text-lg sm:text-xl font-bold gradient-text">BB</button>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      scrolled ? 'glass-card border-b border-border/30 shadow-lg shadow-black/20' : 'bg-transparent'
+    }`}>
+      <div className="max-w-6xl mx-auto px-5 sm:px-6 flex items-center justify-between h-14 sm:h-16">
+        <button onClick={() => scrollTo('home')} className="text-xl sm:text-2xl font-bold gradient-text tracking-tight">
+          BB
+        </button>
 
-        <div className="hidden md:flex gap-4 lg:gap-6">
+        <div className="hidden md:flex items-center gap-1">
           {navLinks.map((l) => (
             <button
               key={l.id}
               onClick={() => scrollTo(l.id)}
-              className={`text-xs font-medium transition-colors duration-200 ${
-                active === l.id ? 'text-primary neon-text' : 'text-muted-foreground hover:text-foreground'
+              className={`px-3 py-1.5 rounded-md text-[0.8125rem] font-medium transition-all duration-300 ${
+                active === l.id
+                  ? 'text-primary bg-primary/10'
+                  : 'text-muted-foreground hover:text-foreground hover:bg-secondary/50'
               }`}
             >
               {l.label}
@@ -57,19 +62,19 @@ const Navbar = () => {
           ))}
         </div>
 
-        <button onClick={() => setIsOpen(!isOpen)} className="md:hidden p-1.5 text-foreground">
+        <button onClick={() => setIsOpen(!isOpen)} className="md:hidden p-2 text-foreground rounded-lg hover:bg-secondary/50 transition-colors">
           {isOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
       </div>
 
       {isOpen && (
-        <div className="md:hidden glass-card mx-3 sm:mx-4 mb-2 p-2 sm:p-3 rounded-lg animate-scale-in">
+        <div className="md:hidden glass-card mx-4 mb-2 p-2 rounded-xl animate-scale-in border border-border/30">
           {navLinks.map((l) => (
             <button
               key={l.id}
               onClick={() => scrollTo(l.id)}
-              className={`block w-full text-left py-2 px-3 rounded text-sm transition-colors ${
-                active === l.id ? 'text-primary bg-primary/10' : 'text-muted-foreground hover:text-foreground'
+              className={`block w-full text-left py-2.5 px-4 rounded-lg text-sm font-medium transition-all ${
+                active === l.id ? 'text-primary bg-primary/10' : 'text-muted-foreground hover:text-foreground hover:bg-secondary/30'
               }`}
             >
               {l.label}
