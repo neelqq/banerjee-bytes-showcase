@@ -8,25 +8,34 @@ import Education from '@/components/Education';
 import Certifications from '@/components/Certifications';
 import Contact from '@/components/Contact';
 
+const Section = ({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) => (
+  <div
+    className="animate-fade-in opacity-0"
+    style={{ animationDelay: `${delay}ms`, animationFillMode: 'forwards' }}
+  >
+    {children}
+  </div>
+);
+
 const Index = () => (
   <div className="min-h-screen bg-background">
     <Navbar />
     <main>
-      <Hero />
+      <Section><Hero /></Section>
       <div className="section-divider" />
-      <About />
+      <Section delay={100}><About /></Section>
       <div className="section-divider" />
-      <Skills />
+      <Section delay={150}><Skills /></Section>
       <div className="section-divider" />
-      <Experience />
+      <Section delay={200}><Experience /></Section>
       <div className="section-divider" />
-      <Projects />
+      <Section delay={250}><Projects /></Section>
       <div className="section-divider" />
-      <Education />
+      <Section delay={300}><Education /></Section>
       <div className="section-divider" />
-      <Certifications />
+      <Section delay={350}><Certifications /></Section>
       <div className="section-divider" />
-      <Contact />
+      <Section delay={400}><Contact /></Section>
     </main>
   </div>
 );
