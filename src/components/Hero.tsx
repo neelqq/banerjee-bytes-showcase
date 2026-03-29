@@ -44,7 +44,7 @@ const Hero = () => {
           style={{ background: 'radial-gradient(circle, hsl(192 100% 50%), transparent 50%)' }} />
       </div>
 
-      <div className="section-container relative z-10">
+      <div className="section-container relative z-10 flex flex-col items-center text-center">
         <div className="max-w-3xl">
           {/* Status badge */}
           <div className="inline-flex items-center gap-2.5 glass-card px-4 py-2 rounded-full mb-6 sm:mb-8 animate-fade-in">
@@ -68,13 +68,13 @@ const Hero = () => {
           </div>
 
           {/* Tagline */}
-          <p className="text-muted-foreground text-sm sm:text-base md:text-lg max-w-2xl leading-relaxed mb-8 sm:mb-10 animate-fade-in" style={{ animationDelay: '0.3s' }}>
+          <p className="text-muted-foreground text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed mb-8 sm:mb-10 animate-fade-in" style={{ animationDelay: '0.3s' }}>
             Building scalable APIs & intelligent applications with Java, Spring Boot,
             RAG & LLM Integration.
           </p>
 
           {/* CTAs */}
-          <div className="flex flex-wrap gap-3 sm:gap-4 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-4 animate-fade-in" style={{ animationDelay: '0.4s' }}>
             <button
               onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
               className="btn-primary"
