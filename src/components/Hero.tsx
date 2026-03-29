@@ -44,7 +44,7 @@ const Hero = () => {
           style={{ background: 'radial-gradient(circle, hsl(192 100% 50%), transparent 50%)' }} />
       </div>
 
-      <div className="section-container relative z-10">
+      <div className="section-container relative z-10 flex flex-col items-center text-center">
         <div className="max-w-3xl">
           {/* Status badge */}
           <div className="inline-flex items-center gap-2.5 glass-card px-4 py-2 rounded-full mb-6 sm:mb-8 animate-fade-in">
