@@ -1,5 +1,4 @@
 import { ExternalLink, Github, Play, Sparkles } from 'lucide-react';
-import { useEffect, useRef, useState } from 'react';
 
 const projects = [
   {
@@ -41,28 +40,18 @@ const projects = [
 ];
 
 const Projects = () => {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const obs = new IntersectionObserver(([e]) => e.isIntersecting && setVisible(true), { threshold: 0.1 });
-    if (ref.current) obs.observe(ref.current);
-    return () => obs.disconnect();
-  }, []);
-
   const featured = projects.find(p => p.featured);
   const others = projects.filter(p => !p.featured);
 
   return (
     <section id="projects">
-      <div ref={ref} className={`section-container transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+      <div className="section-container">
         <h2 className="section-heading">
           Featured <span className="gradient-text">Projects</span>
         </h2>
 
-        {/* Featured project — full width */}
         {featured && (
-          <div className="glass-card p-5 sm:p-7 lg:p-8 rounded-xl mb-5 sm:mb-6 group hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
+          <div className="glass-card p-5 sm:p-7 lg:p-8 rounded-xl mb-5 sm:mb-6 group hover:-translate-y-1 transition-transform duration-300 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-40 h-40 opacity-[0.03] pointer-events-none"
               style={{ background: 'radial-gradient(circle, hsl(192 100% 50%), transparent 70%)' }} />
             <div className="flex items-center gap-2 mb-3">
@@ -79,12 +68,11 @@ const Projects = () => {
           </div>
         )}
 
-        {/* Other projects */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
           {others.map((p, i) => (
             <div
               key={i}
-              className="glass-card p-5 sm:p-6 rounded-xl group hover:-translate-y-1 transition-all duration-300 flex flex-col"
+              className="glass-card p-5 sm:p-6 rounded-xl group hover:-translate-y-1 transition-transform duration-300 flex flex-col"
             >
               <h3 className="text-sm sm:text-base font-bold text-foreground mb-2">{p.title}</h3>
               <p className="text-xs sm:text-sm text-muted-foreground mb-4 leading-relaxed flex-1">{p.desc}</p>

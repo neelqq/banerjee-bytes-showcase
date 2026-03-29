@@ -1,29 +1,17 @@
-import { Briefcase, MapPin, Calendar } from 'lucide-react';
-import { useEffect, useRef, useState } from 'react';
+import { Briefcase, Calendar } from 'lucide-react';
 
 const Experience = () => {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const obs = new IntersectionObserver(([e]) => e.isIntersecting && setVisible(true), { threshold: 0.2 });
-    if (ref.current) obs.observe(ref.current);
-    return () => obs.disconnect();
-  }, []);
-
   return (
     <section id="experience">
-      <div ref={ref} className={`section-container transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+      <div className="section-container">
         <h2 className="section-heading">
           Work <span className="gradient-text">Experience</span>
         </h2>
 
         <div className="max-w-3xl mx-auto">
           <div className="relative pl-8 sm:pl-10">
-            {/* Timeline line */}
             <div className="absolute left-[11px] sm:left-[13px] top-2 bottom-2 w-px bg-gradient-to-b from-primary/50 via-accent/30 to-transparent" />
 
-            {/* Timeline dot */}
             <div className="absolute left-0 sm:left-0 top-0 w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-background border-2 border-primary flex items-center justify-center shadow-[0_0_12px_hsla(192,100%,50%,0.3)]">
               <Briefcase size={12} className="text-primary" />
             </div>
@@ -31,9 +19,7 @@ const Experience = () => {
             <div className="glass-card p-5 sm:p-7 rounded-xl">
               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-4">
                 <div>
-                  <h3 className="text-base sm:text-lg font-bold text-foreground">
-                    Software Developer
-                  </h3>
+                  <h3 className="text-base sm:text-lg font-bold text-foreground">Software Developer</h3>
                   <p className="text-sm sm:text-base text-primary font-medium">PCS Global Pvt. Ltd.</p>
                 </div>
                 <div className="flex flex-wrap gap-3 text-xs sm:text-sm text-muted-foreground">

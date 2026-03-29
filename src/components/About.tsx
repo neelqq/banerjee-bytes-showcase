@@ -1,5 +1,4 @@
 import { Code2, Brain, Server } from 'lucide-react';
-import { useEffect, useRef, useState } from 'react';
 
 const highlights = [
   { icon: Server, label: 'Java Backend', desc: 'Spring Boot, REST APIs, JWT Auth' },
@@ -8,18 +7,9 @@ const highlights = [
 ];
 
 const About = () => {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const obs = new IntersectionObserver(([e]) => e.isIntersecting && setVisible(true), { threshold: 0.15 });
-    if (ref.current) obs.observe(ref.current);
-    return () => obs.disconnect();
-  }, []);
-
   return (
     <section id="about">
-      <div ref={ref} className={`section-container transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+      <div className="section-container">
         <h2 className="section-heading">
           About <span className="gradient-text">Me</span>
         </h2>
@@ -49,7 +39,7 @@ const About = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
               {highlights.map((h, i) => (
-                <div key={i} className="glass-card p-4 sm:p-5 rounded-xl group/card hover:-translate-y-1 transition-all duration-300">
+                <div key={i} className="glass-card p-4 sm:p-5 rounded-xl group/card hover:-translate-y-1 transition-transform duration-300">
                   <div className="icon-box icon-box-sm mb-3 group-hover/card:border-primary/30 transition-colors">
                     <h.icon size={16} className="text-primary" />
                   </div>
