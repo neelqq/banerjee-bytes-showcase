@@ -68,13 +68,13 @@ const Hero = () => {
           </div>
 
           {/* Tagline */}
-          <p className="text-muted-foreground text-sm sm:text-base md:text-lg max-w-2xl leading-relaxed mb-8 sm:mb-10 animate-fade-in" style={{ animationDelay: '0.3s' }}>
+          <p className="text-muted-foreground text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed mb-8 sm:mb-10 animate-fade-in" style={{ animationDelay: '0.3s' }}>
             Building scalable APIs & intelligent applications with Java, Spring Boot,
             RAG & LLM Integration.
           </p>
 
           {/* CTAs */}
-          <div className="flex flex-wrap gap-3 sm:gap-4 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-4 animate-fade-in" style={{ animationDelay: '0.4s' }}>
             <button
               onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
               className="btn-primary"
