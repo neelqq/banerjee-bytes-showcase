@@ -1,4 +1,3 @@
-import { useEffect, useRef, useState } from 'react';
 import { Code, Server, Layout, Database, Smartphone, Cpu } from 'lucide-react';
 
 const skillCategories = [
@@ -11,18 +10,9 @@ const skillCategories = [
 ];
 
 const Skills = () => {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const obs = new IntersectionObserver(([e]) => e.isIntersecting && setVisible(true), { threshold: 0.1 });
-    if (ref.current) obs.observe(ref.current);
-    return () => obs.disconnect();
-  }, []);
-
   return (
     <section id="skills">
-      <div ref={ref} className={`section-container transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+      <div className="section-container">
         <h2 className="section-heading">
           Technical <span className="gradient-text">Skills</span>
         </h2>
@@ -31,8 +21,7 @@ const Skills = () => {
           {skillCategories.map((cat, i) => (
             <div
               key={i}
-              className="glass-card p-5 sm:p-6 rounded-xl group hover:-translate-y-1 transition-all duration-300"
-              style={{ animationDelay: `${i * 0.08}s` }}
+              className="glass-card p-5 sm:p-6 rounded-xl group hover:-translate-y-1 transition-transform duration-300"
             >
               <div className="flex items-center gap-3 mb-4">
                 <div className="icon-box icon-box-sm group-hover:border-primary/30 transition-colors">

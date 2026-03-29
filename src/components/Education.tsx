@@ -1,5 +1,4 @@
 import { GraduationCap, Calendar, MapPin } from 'lucide-react';
-import { useEffect, useRef, useState } from 'react';
 
 const education = [
   {
@@ -19,25 +18,16 @@ const education = [
 ];
 
 const Education = () => {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const obs = new IntersectionObserver(([e]) => e.isIntersecting && setVisible(true), { threshold: 0.2 });
-    if (ref.current) obs.observe(ref.current);
-    return () => obs.disconnect();
-  }, []);
-
   return (
     <section id="education">
-      <div ref={ref} className={`section-container transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+      <div className="section-container">
         <h2 className="section-heading">
           <span className="gradient-text">Education</span>
         </h2>
 
         <div className="max-w-3xl mx-auto space-y-4 sm:space-y-5">
           {education.map((e, i) => (
-            <div key={i} className="glass-card p-5 sm:p-6 rounded-xl hover:-translate-y-1 transition-all duration-300 group">
+            <div key={i} className="glass-card p-5 sm:p-6 rounded-xl hover:-translate-y-1 transition-transform duration-300 group">
               <div className="flex items-start gap-4">
                 <div className="icon-box icon-box-md group-hover:border-primary/30 transition-colors">
                   <GraduationCap size={18} className="text-primary" />

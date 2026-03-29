@@ -1,33 +1,24 @@
 import { Mail, Phone, Linkedin, Send, ArrowUpRight } from 'lucide-react';
-import { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
 
 const Contact = () => {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
   const [form, setForm] = useState({ name: '', email: '', message: '' });
-
-  useEffect(() => {
-    const obs = new IntersectionObserver(([e]) => e.isIntersecting && setVisible(true), { threshold: 0.15 });
-    if (ref.current) obs.observe(ref.current);
-    return () => obs.disconnect();
-  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     window.location.href = `mailto:banerjeebratabitan@gmail.com?subject=Portfolio Contact from ${form.name}&body=${encodeURIComponent(form.message)}%0A%0AFrom: ${form.email}`;
   };
 
-  const inputClass = "w-full bg-secondary/40 border border-border/60 rounded-xl px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:border-primary/50 focus:bg-secondary/60 transition-all duration-300";
+  const inputClass = "w-full bg-secondary/40 border border-border/60 rounded-xl px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:border-primary/50 focus:bg-secondary/60 transition-colors duration-300";
 
   return (
     <section id="contact">
-      <div ref={ref} className={`section-container transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+      <div className="section-container">
         <h2 className="section-heading">
           Get In <span className="gradient-text">Touch</span>
         </h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 max-w-4xl mx-auto">
-          {/* Contact info */}
           <div className="space-y-4">
             <p className="text-muted-foreground text-sm sm:text-base mb-6 leading-relaxed">
               I'm looking for backend-heavy projects to contribute to. Let's build something great together!
@@ -39,7 +30,7 @@ const Contact = () => {
               { icon: Linkedin, label: 'LinkedIn', value: 'bratabitanbanerjee', href: 'https://www.linkedin.com/in/bratabitanbanerjee' },
             ].map((item, i) => (
               <a key={i} href={item.href} target={item.icon === Linkedin ? '_blank' : undefined} rel="noopener noreferrer"
-                className="glass-card flex items-center gap-4 p-4 rounded-xl hover:-translate-y-0.5 transition-all duration-300 group">
+                className="glass-card flex items-center gap-4 p-4 rounded-xl hover:-translate-y-0.5 transition-transform duration-300 group">
                 <div className="icon-box icon-box-sm group-hover:border-primary/30 transition-colors">
                   <item.icon size={15} className="text-primary" />
                 </div>
@@ -52,7 +43,6 @@ const Contact = () => {
             ))}
           </div>
 
-          {/* Form */}
           <form onSubmit={handleSubmit} className="glass-card p-5 sm:p-7 rounded-xl space-y-4">
             <div>
               <label className="text-xs font-medium text-muted-foreground mb-1.5 block">Name</label>
