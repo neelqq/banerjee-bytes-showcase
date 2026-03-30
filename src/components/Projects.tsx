@@ -5,7 +5,10 @@ const projects = [
     title: "AI Chemist – Intelligent Medicine Assistant",
     desc: "Production-grade RAG system retrieving medicines from MongoDB Atlas vector store based on symptoms. JWT auth with Spring Security, Ollama (Llama3) via Spring AI for conversational recommendations, and full data pipeline from embedding generation to semantic search.",
     tech: ["Java", "Spring Boot", "Spring AI", "React", "MongoDB Atlas", "Ollama (Llama3)"],
-    links: [],
+    links: [
+      { label: "GitHub", url: "https://github.com/neelqq/MediCare-AI.git", icon: Github },
+      { label: "Test Cases", url: "https://drive.google.com/drive/folders/1HC_dKUNBajFoSQ-GPyPR6KRBQFJUHbY4?usp=sharing", icon: ExternalLink },
+    ],
     featured: true,
   },
   {
@@ -65,6 +68,21 @@ const Projects = () => {
                 <span key={j} className="skill-pill">{t}</span>
               ))}
             </div>
+            {featured.links.length > 0 && (
+              <div className="flex flex-wrap gap-3 mt-5 pt-3 border-t border-border/30">
+                {featured.links.map((l, j) => (
+                  <a
+                    key={j}
+                    href={l.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-sm text-primary hover:text-accent transition-colors duration-200 font-medium"
+                  >
+                    <l.icon size={14} /> {l.label}
+                  </a>
+                ))}
+              </div>
+            )}
           </div>
         )}
 
