@@ -7,7 +7,7 @@ const projects = [
     tech: ["Java", "Spring Boot", "Spring AI", "React", "MongoDB Atlas", "Ollama (Llama3)"],
     links: [
       { label: "GitHub", url: "https://github.com/neelqq/MediCare-AI.git", icon: Github },
-      { label: "Test Cases", url: "https://drive.google.com/drive/folders/1HC_dKUNBajFoSQ-GPyPR6KRBQFJUHbY4?usp=sharing", icon: ExternalLink },
+      { label: "Test Cases", url: "https://drive.google.com/drive/folders/1HC_dKUNBajFoSQ-GPyPR6KRBQFJUHbY4?usp=drive_link", icon: ExternalLink },
     ],
     featured: true,
   },
