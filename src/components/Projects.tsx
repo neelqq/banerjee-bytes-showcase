@@ -68,8 +68,22 @@ const Projects = () => {
                 <span key={j} className="skill-pill">{t}</span>
               ))}
             </div>
+            {featured.links.length > 0 && (
+              <div className="flex flex-wrap gap-3 mt-5 pt-3 border-t border-border/30">
+                {featured.links.map((l, j) => (
+                  <a
+                    key={j}
+                    href={l.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-sm text-primary hover:text-accent transition-colors duration-200 font-medium"
+                  >
+                    <l.icon size={14} /> {l.label}
+                  </a>
+                ))}
+              </div>
+            )}
           </div>
-        )}
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
           {others.map((p, i) => (
